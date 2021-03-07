@@ -24,5 +24,5 @@ var result2 = client
         .AddFragments("system/functions"))
     .Get();
 
-var httpResponseMessage = await result.Execute();
+var httpResponseMessage = await result2.Execute();
 Console.WriteLine(await httpResponseMessage.Content.ReadAsStringAsync());
