@@ -1,5 +1,6 @@
 ﻿using System;
 using Integrations.HttpClient;
+using Integrations.HttpClient.Predifined;
 using Microsoft.Extensions.DependencyInjection;
 
 var provider = new ServiceCollection()
@@ -9,8 +10,7 @@ var provider = new ServiceCollection()
 var client = provider.GetService<IClient>();
 
 var result = client
-    .WithBaseUrl("https://www.googleapis.com/youtube/v3")
-    .WithCredentials(x => x.File.Read("Youtube"))
+    .Youtube()
     .WithEndpoint(x => x
         .AddFragments("channels"))
     .WithQueryParameters(x => x
@@ -19,8 +19,7 @@ var result = client
     .Get();
 
 var result2 = client
-    .WithBaseUrl("http://192.168.0.2:8080")
-    .WithCredentials(x => x.File.Read("Openfaas"))
+    .Openfaas()
     .WithEndpoint(x => x
         .AddFragments("system/functions"))
     .Get();

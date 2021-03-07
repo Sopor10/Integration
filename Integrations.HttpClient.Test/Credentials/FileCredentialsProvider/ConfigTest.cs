@@ -12,7 +12,7 @@ namespace Integrations.HttpClient.Test.Credentials.FileCredentialsProvider
         {
             var sut = new Config();
             Assert.DoesNotThrow(()=> sut.FilePath("test"));
-            sut.FileExtension.Should().Be("json");
+            sut.FileExtension.Should().Be(".json");
         }
     }
 }
