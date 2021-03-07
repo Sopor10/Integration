@@ -18,7 +18,7 @@ namespace Integrations.HttpClient.Credentials.FileCredentialProvider
 
         public async Task<ICredentials> Read(string filename)
         {
-            var fileContent = await File.ReadAllTextAsync(Config.SecrectDirectory.FullName + "/" + filename + ".json");
+            var fileContent = await File.ReadAllTextAsync(Config.FilePath(filename));
             var credentialContainer = JsonConvert.DeserializeObject<CredentialContainer>(fileContent);
 
             var result = Handler.Handle(credentialContainer);

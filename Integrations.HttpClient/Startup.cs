@@ -8,11 +8,11 @@ namespace Integrations.HttpClient
 {
     public static class Startup
     {
-        public static IServiceCollection InstallHttpClient(this IServiceCollection services,DirectoryInfo secretDirectory = null)
+        public static IServiceCollection InstallHttpClient(this IServiceCollection services,Config config = null)
         {
-            if (secretDirectory == null)
+            if (config == null)
             {
-                secretDirectory = new DirectoryInfo("C:/dev/Integrations/Credentials");
+                config = new Config();
             }
             
             services.AddTransient<IClient, Client>();
@@ -21,10 +21,7 @@ namespace Integrations.HttpClient
             services.AddTransient<CredentialProvider>();
             services.AddTransient<BasicAuthProvider>();
             services.AddTransient<QueryParameterAuthProvider>();
-            services.AddTransient(x => new Config()
-            {
-                SecrectDirectory = secretDirectory
-            });
+            services.AddTransient(x => config);
             
             services.AddTransient<IHandler, OpenfaasHandler>();
             services.AddTransient<IHandler, YoutubeApiKeyHandler>();

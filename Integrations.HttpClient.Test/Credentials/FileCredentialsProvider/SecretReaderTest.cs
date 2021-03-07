@@ -12,7 +12,7 @@ namespace Integrations.HttpClient.Test.Credentials.FileCredentialsProvider
     public class SecretReaderTest
     {
         private ServiceProvider Provider()=> new ServiceCollection()
-            .InstallHttpClient(new DirectoryInfo("./Credentials/FileCredentialsProvider"))
+            .InstallHttpClient(new Config(){SecrectDirectory = new DirectoryInfo("./Credentials/FileCredentialsProvider")})
             .BuildServiceProvider();
 
         private ISecretReader SecretReader() => Provider().GetService<ISecretReader>();
