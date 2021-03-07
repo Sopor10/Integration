@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using System.IO;
+﻿using System.IO;
 using Integrations.HttpClient.Credentials;
 using Integrations.HttpClient.Credentials.FileCredentialProvider;
 using Integrations.HttpClient.Credentials.FileCredentialProvider.Extensions;

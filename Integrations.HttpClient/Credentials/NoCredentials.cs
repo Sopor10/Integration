@@ -1,6 +1,4 @@
-﻿using System.Net.Http;
-
-namespace Integrations.HttpClient.Credentials
+﻿namespace Integrations.HttpClient.Credentials
 {
     internal class NoCredentials : ICredentials
     {

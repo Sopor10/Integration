@@ -1,4 +1,3 @@
-using Integrations.HttpClient.Credentials;
 using Microsoft.Extensions.DependencyInjection;
 using NUnit.Framework;
 

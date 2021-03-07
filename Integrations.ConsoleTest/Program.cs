@@ -1,6 +1,5 @@
 ﻿using System;
 using Integrations.HttpClient;
-using Integrations.HttpClient.Credentials.Extensions;
 using Microsoft.Extensions.DependencyInjection;
 
 var provider = new ServiceCollection()

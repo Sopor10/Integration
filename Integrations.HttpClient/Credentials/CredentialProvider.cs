@@ -1,5 +1,4 @@
 ﻿using Integrations.HttpClient.Credentials.FileCredentialProvider;
-using Integrations.HttpClient.Credentials.FileCredentialProvider.Extensions;
 
 namespace Integrations.HttpClient.Credentials
 {

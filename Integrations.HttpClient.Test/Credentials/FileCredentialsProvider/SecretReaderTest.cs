@@ -3,7 +3,6 @@ using System.Threading.Tasks;
 using FluentAssertions;
 using Integrations.HttpClient.Credentials;
 using Integrations.HttpClient.Credentials.FileCredentialProvider;
-using Integrations.HttpClient.Credentials.FileCredentialProvider.Extensions;
 using Microsoft.Extensions.DependencyInjection;
 using NUnit.Framework;
 

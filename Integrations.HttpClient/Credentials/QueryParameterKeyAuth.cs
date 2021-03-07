@@ -1,6 +1,4 @@
-﻿using System.Linq;
-using System.Net.Http;
-using Integrations.HttpClient.Url.QueryParameter;
+﻿using Integrations.HttpClient.Url.QueryParameter;
 using Newtonsoft.Json.Linq;
 
 namespace Integrations.HttpClient.Credentials

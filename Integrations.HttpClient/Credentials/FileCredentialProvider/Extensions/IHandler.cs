@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Integrations.HttpClient.Credentials.FileCredentialProvider.Extensions
+﻿namespace Integrations.HttpClient.Credentials.FileCredentialProvider.Extensions
 {
     public interface IHandler
     {
