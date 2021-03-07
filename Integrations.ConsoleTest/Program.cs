@@ -1,11 +1,17 @@
 ﻿using System;
 using Integrations.HttpClient;
 using Integrations.HttpClient.Credentials.Extensions;
+using Microsoft.Extensions.DependencyInjection;
 
-var client = new ClientFactory().Create();
+var provider = new ServiceCollection()
+    .InstallHttpClient()
+    .BuildServiceProvider();
+
+var client = provider.GetService<IClient>();
 
 var result = client
     .WithBaseUrl("https://www.googleapis.com/youtube/v3")
+    .WithCredentials(x => x.File.Read("Youtube"))
     .WithEndpoint(x => x
         .AddFragments("channels"))
     .WithQueryParameters(x => x
@@ -15,9 +21,10 @@ var result = client
 
 var result2 = client
     .WithBaseUrl("http://192.168.0.2:8080")
+    .WithCredentials(x => x.File.Read("Openfaas"))
     .WithEndpoint(x => x
         .AddFragments("system/functions"))
     .Get();
 
-//Console.WriteLine(await (await result.Execute()).Content.ReadAsStringAsync());
-Console.WriteLine(await (await result2.Execute()).Content.ReadAsStringAsync());
+var httpResponseMessage = await result.Execute();
+Console.WriteLine(await httpResponseMessage.Content.ReadAsStringAsync());

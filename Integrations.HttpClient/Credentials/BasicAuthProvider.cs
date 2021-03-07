@@ -1,4 +1,6 @@
-﻿namespace Integrations.HttpClient.Credentials
+﻿using Newtonsoft.Json.Linq;
+
+namespace Integrations.HttpClient.Credentials
 {
     public record BasicAuthProvider
     {
@@ -10,5 +12,7 @@
             var password = userPassword.Substring(seperatorIndex + 1);
             return new(user, password);
         }
+
+        public BasicAuth FromJson(JObject json) => json.ToObject<BasicAuth>();
     }
 }

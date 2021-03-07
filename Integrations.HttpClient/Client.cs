@@ -11,6 +11,13 @@ namespace Integrations.HttpClient
 {
     internal record Client : IClient
     {
+        public Client(CredentialProvider credentialProvider)
+        {
+            CredentialProvider = credentialProvider;
+        }
+
+        public CredentialProvider CredentialProvider { get; } 
+
         internal Uri RequestURI => new Uri(BaseUrl + FragmentList + QueryParameterList);
 
         internal string BaseUrl { get; init; }
@@ -42,7 +49,7 @@ namespace Integrations.HttpClient
 
         public async Task<HttpResponseMessage> Execute()
         {
-            var cred = await Credentials.Invoke(new CredentialProvider());
+            var cred = await Credentials.Invoke(CredentialProvider);
             var authorizedClient = cred.Authorize(this);
             
             return await new HttpClientAdapter().Execute(authorizedClient);
@@ -63,14 +70,6 @@ namespace Integrations.HttpClient
         public IClient AddHeader(string key, string value)
         {
             return this with{Header = Header.Add(key, value)};
-        }
-    }
-
-    public class ClientFactory
-    {
-        public IClient Create()
-        {
-            return new Client();
         }
     }
 }

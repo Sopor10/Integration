@@ -1,17 +1,20 @@
-﻿namespace Integrations.HttpClient.Credentials
+﻿using Integrations.HttpClient.Credentials.FileCredentialProvider;
+using Integrations.HttpClient.Credentials.FileCredentialProvider.Extensions;
+
+namespace Integrations.HttpClient.Credentials
 {
     public class CredentialProvider
     {
-        public BasicAuthProvider BasicAuth => new();
-        public  ICredentials None => new NoCredentials();
-        public IServiceIntegrations For => new ServiceIntegrations();
-    }
+        public CredentialProvider(BasicAuthProvider basicAuth, IServiceIntegrations @for, ISecretReader file)
+        {
+            BasicAuth = basicAuth;
+            For = @for;
+            File = file;
+        }
 
-    public interface IServiceIntegrations
-    {
-    }
-
-    public class ServiceIntegrations : IServiceIntegrations
-    {
+        public BasicAuthProvider BasicAuth { get; }
+        public ICredentials None { get; } = new NoCredentials();
+        public IServiceIntegrations For { get; }
+        public ISecretReader File { get; }
     }
 }

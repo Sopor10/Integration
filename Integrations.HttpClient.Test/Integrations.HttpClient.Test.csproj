@@ -17,4 +17,20 @@
       <ProjectReference Include="..\Integrations.HttpClient\Integrations.HttpClient.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Reference Include="Microsoft.Extensions.DependencyInjection, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60">
+        <HintPath>..\..\..\Users\Lars\.nuget\packages\microsoft.extensions.dependencyinjection\6.0.0-preview.1.21102.12\lib\netstandard2.1\Microsoft.Extensions.DependencyInjection.dll</HintPath>
+      </Reference>
+    </ItemGroup>
+
+    <ItemGroup>
+      <AdditionalFiles Include="Credentials\FileCredentialsProvider\Youtube.json">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </AdditionalFiles>
+      <None Remove="Credentials\FileCredentialsProvider\Openfaas.json" />
+      <AdditionalFiles Include="Credentials\FileCredentialsProvider\Openfaas.json">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </AdditionalFiles>
+    </ItemGroup>
+
 </Project>

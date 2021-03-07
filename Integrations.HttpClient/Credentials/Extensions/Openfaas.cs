@@ -18,14 +18,4 @@ namespace Integrations.HttpClient.Credentials.Extensions
             return provider.FromLiteral(user,password);
         }
     }
-
-    public static class YoutubeExtension
-    {
-        public static ICredentials Youtube(this IServiceIntegrations integration, string apiKey)
-        {
-            return new QueryParameterAuthProvider().FromLiteral("key", apiKey);
-        }
-    }
-    
-    
 }
