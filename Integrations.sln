@@ -5,6 +5,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionItems", "SolutionItems", "{0CD38ACA-A20A-49A0-ABE0-1C86CDE106BC}"
 ProjectSection(SolutionItems) = preProject
 	.gitignore = .gitignore
+	README.md = README.md
 EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Integrations.HttpClient", "Integrations.HttpClient\Integrations.HttpClient.csproj", "{3D62F6CE-97A7-4ADC-A3E0-0FF6EF99C6F8}"
