@@ -6,4 +6,8 @@
         <RootNamespace>Integrations.Console</RootNamespace>
     </PropertyGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\Integrations.HttpClient\Integrations.HttpClient.csproj" />
+    </ItemGroup>
+
 </Project>
