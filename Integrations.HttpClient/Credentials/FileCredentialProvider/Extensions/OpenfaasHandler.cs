@@ -10,7 +10,7 @@
             BasicAuthProvider = basicAuthProvider;
         }
 
-        protected override ICredentials Handle(CredentialContainer container)
+        protected override ICredentials? Handle(CredentialContainer container)
         {
             return BasicAuthProvider.FromJson(container.Credential);
         }

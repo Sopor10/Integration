@@ -13,13 +13,15 @@ namespace Integrations.HttpClient
         public Client(CredentialProvider credentialProvider)
         {
             CredentialProvider = credentialProvider;
+            Method = HttpMethod.Get;
+            Credentials = x => Task.FromResult(x.None);
         }
 
         public CredentialProvider CredentialProvider { get; } 
 
         internal Uri RequestURI => new Uri(BaseUrl + FragmentList + QueryParameterList);
 
-        internal string BaseUrl { get; init; }
+        internal string? BaseUrl { get; init; } 
         internal Func<CredentialProvider, Task<ICredentials>> Credentials { get; init; }
         internal HttpMethod Method { get; init; }
 

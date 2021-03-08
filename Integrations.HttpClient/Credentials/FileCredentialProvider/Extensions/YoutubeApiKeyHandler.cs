@@ -2,23 +2,16 @@
 
 namespace Integrations.HttpClient.Credentials.FileCredentialProvider.Extensions
 {
-    internal class YoutubeApiKeyHandler : IHandler
+    internal class YoutubeApiKeyHandler :GenericHandler
     {
         public QueryParameterAuthProvider QueryParameterAuthProvider { get; }
 
-        public YoutubeApiKeyHandler(QueryParameterAuthProvider queryParameterAuthProvider)
+        public YoutubeApiKeyHandler(QueryParameterAuthProvider queryParameterAuthProvider): base(new[]{"youtube-api-key"})
         {
             QueryParameterAuthProvider = queryParameterAuthProvider;
         }
-        public ICredentials Handle(string fileContent)
+        protected override ICredentials? Handle(CredentialContainer container)
         {
-            var container = JsonConvert.DeserializeObject<CredentialContainer>(fileContent);
-
-            if (container.Type != "youtube-api-key")
-            {
-                return null;
-            }
-
             return QueryParameterAuthProvider.FromJson(container.Credential);
         }
     }

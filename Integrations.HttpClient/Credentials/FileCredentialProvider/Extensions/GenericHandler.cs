@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using Newtonsoft.Json;
 
 namespace Integrations.HttpClient.Credentials.FileCredentialProvider.Extensions
@@ -9,7 +10,7 @@ namespace Integrations.HttpClient.Credentials.FileCredentialProvider.Extensions
 
         private GenericHandler()
         {
-            
+            Keys = Array.Empty<string>();
         }
 
         protected GenericHandler(string[] keys)
@@ -17,18 +18,17 @@ namespace Integrations.HttpClient.Credentials.FileCredentialProvider.Extensions
             Keys = keys;
         }
         
-        public ICredentials Handle(string fileContent)
+        public ICredentials? Handle(string fileContent)
         {
             var container = JsonConvert.DeserializeObject<CredentialContainer>(fileContent);
 
-            if (!Keys.Contains(container.Type))
+            if (container == null ||!Keys.Contains(container?.Type))
             {
                 return null;
             }
-
-            return Handle(container);
+            return Handle(container!);
         }
 
-        protected abstract ICredentials Handle(CredentialContainer fileContent);
+        protected abstract ICredentials? Handle(CredentialContainer container);
     }
 }

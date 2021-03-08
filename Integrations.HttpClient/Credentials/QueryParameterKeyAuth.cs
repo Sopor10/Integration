@@ -15,6 +15,6 @@ namespace Integrations.HttpClient.Credentials
     {
         public QueryParameterAuth FromLiteral(string key, string parameter) =>
             new(key, parameter);
-        public QueryParameterAuth FromJson(JObject json) => json.ToObject<QueryParameterAuth>();
+        public QueryParameterAuth? FromJson(JObject json) => json.ToObject<QueryParameterAuth>();
     }
 }

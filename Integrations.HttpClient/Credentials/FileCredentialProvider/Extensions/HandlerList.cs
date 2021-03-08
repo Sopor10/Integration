@@ -25,7 +25,7 @@ namespace Integrations.HttpClient.Credentials.FileCredentialProvider.Extensions
             }
             var credentialContainer = JsonConvert.DeserializeObject<CredentialContainer>(container);
 
-            throw new InvalidCredentialException($"Der Secrettyp {credentialContainer.Type} wird nicht unterstützt.");
+            throw new InvalidCredentialException($"Der Secrettyp {credentialContainer?.Type??"nichts"} wird nicht unterstützt.");
         }
     }
 }

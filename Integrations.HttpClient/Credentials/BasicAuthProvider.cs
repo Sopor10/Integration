@@ -13,6 +13,6 @@ namespace Integrations.HttpClient.Credentials
             return new(user, password);
         }
 
-        public BasicAuth FromJson(JObject json) => json.ToObject<BasicAuth>();
+        public BasicAuth? FromJson(JObject json) => json.ToObject<BasicAuth>();
     }
 }

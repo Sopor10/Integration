@@ -8,7 +8,7 @@ namespace Integrations.HttpClient
 {
     public static class Startup
     {
-        public static IServiceCollection InstallHttpClient(this IServiceCollection services,Config config = null)
+        public static IServiceCollection InstallHttpClient(this IServiceCollection services,Config? config = null)
         {
             if (config == null)
             {

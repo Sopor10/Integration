@@ -2,11 +2,6 @@
 {
     public interface IHandler
     {
-        public ICredentials Handle(string container);
-    }
-    
-    public interface IHandlerList
-    {
-        public ICredentials Handle(string container);
+        public ICredentials? Handle(string container);
     }
 }

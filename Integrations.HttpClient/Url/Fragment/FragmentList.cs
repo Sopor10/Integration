@@ -5,7 +5,7 @@ namespace Integrations.HttpClient.Url.Fragment
 {
     public record FragmentList
     {
-        internal ImmutableList<Fragment> Values { get; init; }
+        internal ImmutableList<Fragment> Values { get; init; } = ImmutableList<Fragment>.Empty;
 
         public override string ToString()
         {
