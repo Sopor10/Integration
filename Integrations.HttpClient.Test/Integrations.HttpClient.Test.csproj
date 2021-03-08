@@ -31,6 +31,10 @@
       <AdditionalFiles Include="Credentials\FileCredentialsProvider\Openfaas.json">
         <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       </AdditionalFiles>
+      <None Remove="Credentials\FileCredentialsProvider\n8n-credential.json" />
+      <AdditionalFiles Include="Credentials\FileCredentialsProvider\n8n-credential.json">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </AdditionalFiles>
     </ItemGroup>
 
 </Project>

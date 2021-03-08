@@ -38,5 +38,16 @@ namespace Integrations.HttpClient.Test.Credentials.FileCredentialsProvider
             basicAuth.Token.Should().Be("meinSecretKey");
 
         }
+        
+        [Test]
+        public async Task N8N_Secret_Can_Be_Read_From_File()
+        {
+            ISecretReader sut = SecretReader();
+            var result = await sut.Read("n8n-credential");
+            var basicAuth = result.Should().BeOfType<QueryParameterAuth>().Subject;
+            basicAuth.Key.Should().Be("key");
+            basicAuth.Token.Should().Be("meinSecretKey");
+
+        }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Security.Authentication;
+using Newtonsoft.Json;
 
 namespace Integrations.HttpClient.Credentials.FileCredentialProvider.Extensions
 {
@@ -12,7 +13,7 @@ namespace Integrations.HttpClient.Credentials.FileCredentialProvider.Extensions
         {
             Handlers = handlers.ToImmutableList();
         }
-        public ICredentials Handle(CredentialContainer container)
+        public ICredentials Handle(string container)
         {
             foreach (var handler in Handlers)
             {
@@ -22,7 +23,9 @@ namespace Integrations.HttpClient.Credentials.FileCredentialProvider.Extensions
                     return result;
                 }
             }
-            throw new InvalidCredentialException($"Der Secrettyp {container.Type} wird nicht unterstützt.");
+            var credentialContainer = JsonConvert.DeserializeObject<CredentialContainer>(container);
+
+            throw new InvalidCredentialException($"Der Secrettyp {credentialContainer.Type} wird nicht unterstützt.");
         }
     }
 }
