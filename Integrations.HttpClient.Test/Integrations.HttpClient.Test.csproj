@@ -2,39 +2,38 @@
 
     <PropertyGroup>
         <TargetFramework>net5.0</TargetFramework>
-
         <IsPackable>false</IsPackable>
+        <EmitCompilerGeneratedFiles>true</EmitCompilerGeneratedFiles>
+        <CompilerGeneratedFilesOutputPath>$(BaseIntermediateOutputPath)\GeneratedFiles</CompilerGeneratedFilesOutputPath>
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="FluentAssertions" Version="6.0.0-alpha0002" />
-        <PackageReference Include="NUnit" Version="3.12.0" />
-        <PackageReference Include="NUnit3TestAdapter" Version="3.16.1" />
-        <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.5.0" />
+        <PackageReference Include="FluentAssertions" Version="6.0.0-alpha0002"/>
+        <PackageReference Include="NUnit" Version="3.12.0"/>
+        <PackageReference Include="NUnit3TestAdapter" Version="3.16.1"/>
+        <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.5.0"/>
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\Integrations.HttpClient\Integrations.HttpClient.csproj" />
+        <ProjectReference Include="..\Integrations.HttpClient\Integrations.HttpClient.csproj"/>
     </ItemGroup>
 
     <ItemGroup>
-      <Reference Include="Microsoft.Extensions.DependencyInjection, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60">
-        <HintPath>..\..\..\Users\Lars\.nuget\packages\microsoft.extensions.dependencyinjection\6.0.0-preview.1.21102.12\lib\netstandard2.1\Microsoft.Extensions.DependencyInjection.dll</HintPath>
-      </Reference>
+        <Reference Include="Microsoft.Extensions.DependencyInjection, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60">
+            <HintPath>..\..\..\Users\Lars\.nuget\packages\microsoft.extensions.dependencyinjection\6.0.0-preview.1.21102.12\lib\netstandard2.1\Microsoft.Extensions.DependencyInjection.dll</HintPath>
+        </Reference>
     </ItemGroup>
 
     <ItemGroup>
-      <AdditionalFiles Include="Credentials\FileCredentialsProvider\Youtube.json">
-        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      </AdditionalFiles>
-      <None Remove="Credentials\FileCredentialsProvider\Openfaas.json" />
-      <AdditionalFiles Include="Credentials\FileCredentialsProvider\Openfaas.json">
-        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      </AdditionalFiles>
-      <None Remove="Credentials\FileCredentialsProvider\n8n-credential.json" />
-      <AdditionalFiles Include="Credentials\FileCredentialsProvider\n8n-credential.json">
-        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      </AdditionalFiles>
+        <AdditionalFiles Include="Credentials\FileCredentialsProvider\Youtube.json">
+            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        </AdditionalFiles>
+        <Content Include="Credentials\FileCredentialsProvider\Openfaas.json">
+            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        </Content>
+        <AdditionalFiles Include="Credentials\FileCredentialsProvider\n8n-credential.json">
+            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        </AdditionalFiles>
     </ItemGroup>
 
 </Project>

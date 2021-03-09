@@ -1,16 +1,21 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Integrations.ConsoleTest", "Integrations.ConsoleTest\Integrations.ConsoleTest.csproj", "{850574FF-3AB8-486C-BF09-87AE952D9295}"
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31005.135
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Integrations.ConsoleTest", "Integrations.ConsoleTest\Integrations.ConsoleTest.csproj", "{850574FF-3AB8-486C-BF09-87AE952D9295}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionItems", "SolutionItems", "{0CD38ACA-A20A-49A0-ABE0-1C86CDE106BC}"
-ProjectSection(SolutionItems) = preProject
-	.gitignore = .gitignore
-	README.md = README.md
-EndProjectSection
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+		README.md = README.md
+	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Integrations.HttpClient", "Integrations.HttpClient\Integrations.HttpClient.csproj", "{3D62F6CE-97A7-4ADC-A3E0-0FF6EF99C6F8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Integrations.HttpClient", "Integrations.HttpClient\Integrations.HttpClient.csproj", "{3D62F6CE-97A7-4ADC-A3E0-0FF6EF99C6F8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Integrations.HttpClient.Test", "Integrations.HttpClient.Test\Integrations.HttpClient.Test.csproj", "{80F676DF-6571-4120-B260-2140A1314E41}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Integrations.HttpClient.Test", "Integrations.HttpClient.Test\Integrations.HttpClient.Test.csproj", "{80F676DF-6571-4120-B260-2140A1314E41}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Integrations.ExternalClients", "Integrations.ExternalClients\Integrations.ExternalClients.csproj", "{508F1274-E36B-4313-8190-12EBE7DE8A9A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -30,5 +35,15 @@ Global
 		{80F676DF-6571-4120-B260-2140A1314E41}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{80F676DF-6571-4120-B260-2140A1314E41}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{80F676DF-6571-4120-B260-2140A1314E41}.Release|Any CPU.Build.0 = Release|Any CPU
+		{508F1274-E36B-4313-8190-12EBE7DE8A9A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{508F1274-E36B-4313-8190-12EBE7DE8A9A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{508F1274-E36B-4313-8190-12EBE7DE8A9A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{508F1274-E36B-4313-8190-12EBE7DE8A9A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {986E8B1A-740D-4E4D-9A15-25F1ADCEE2A2}
 	EndGlobalSection
 EndGlobal

@@ -36,7 +36,6 @@ namespace Integrations.HttpClient.Test.Credentials.FileCredentialsProvider
             var basicAuth = result.Should().BeOfType<QueryParameterAuth>().Subject;
             basicAuth.Key.Should().Be("key");
             basicAuth.Token.Should().Be("meinSecretKey");
-
         }
         
         [Test]
@@ -46,8 +45,7 @@ namespace Integrations.HttpClient.Test.Credentials.FileCredentialsProvider
             var result = await sut.Read("n8n-credential");
             var basicAuth = result.Should().BeOfType<QueryParameterAuth>().Subject;
             basicAuth.Key.Should().Be("key");
-            basicAuth.Token.Should().Be("meinSecretKey");
-
+            basicAuth.Token.Should().Be("meinSecretKey");            
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using Integrations.ExternalClients;
 using Integrations.HttpClient;
 using Integrations.HttpClient.Predifined;
 using Microsoft.Extensions.DependencyInjection;
@@ -23,6 +24,9 @@ var result2 = client
     .WithEndpoint(x => x
         .AddFragments("system/functions"))
     .Get();
-
+var result3 = await client
+	.Openfaas()
+	.Openfaas(x => x
+		.InfoAsync());
 var httpResponseMessage = await result2.Execute();
 Console.WriteLine(await httpResponseMessage.Content.ReadAsStringAsync());
